@@ -1,0 +1,112 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BlazorApp
+build_property.RootNamespace = BlazorApp
+build_property.ProjectDir = C:\Users\rvs\source\repos\BlazorApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\rvs\source\repos\BlazorApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/rvs/source/repos/BlazorApp/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Chart/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Chart/HomePerformanceChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRcSG9tZVBlcmZvcm1hbmNlQ2hhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Chart/TickerExposureChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRcVGlja2VyRXhwb3N1cmVDaGFydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Home/HomeExposure.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lRXhwb3N1cmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Home/HomeInvestment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lSW52ZXN0bWVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Home/HomePerformance.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lUGVyZm9ybWFuY2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Home/SyncFusionGrid.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxTeW5jRnVzaW9uR3JpZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Tabs/TabControl.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFic1xUYWJDb250cm9sLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Tabs/TabPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFic1xUYWJQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/TradingSystem/HoldingsInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhZGluZ1N5c3RlbVxIb2xkaW5nc0luZm8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/TradingSystem/SecurityInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhZGluZ1N5c3RlbVxTZWN1cml0eUluZm8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/TradingSystem/Trading.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhZGluZ1N5c3RlbVxUcmFkaW5nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/TradingSystem/TradingInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhZGluZ1N5c3RlbVxUcmFkaW5nSW5mby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Weather/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlclxGZXRjaERhdGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Weather/WeatherGrid.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlclxXZWF0aGVyR3JpZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-3dsd3z3yec
+
+[C:/Users/rvs/source/repos/BlazorApp/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-7cxxmz0cwl
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/Chart/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rvs/source/repos/BlazorApp/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

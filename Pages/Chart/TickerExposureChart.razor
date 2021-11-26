@@ -1,0 +1,56 @@
+@page "/chart/line"
+@using Syncfusion.Blazor.Charts
+@using Syncfusion.Blazor
+@inject NavigationManager NavigationManager
+
+<div class="control-section">
+    <SfChart Title="Exposure Over Time" >
+        <ChartArea><ChartAreaBorder Width="0"></ChartAreaBorder></ChartArea>
+        <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime" LabelFormat="yyyy" IntervalType="IntervalType.Years" EdgeLabelPlacement="EdgeLabelPlacement.Shift">
+            <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis LabelFormat="{value}%" RangePadding="ChartRangePadding.None" Minimum="0" Maximum="100" Interval="20">
+            <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
+            <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
+        </ChartPrimaryYAxis>
+        <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+        <ChartSeriesCollection>
+            <ChartSeries DataSource="@ChartData" Name="@Ticker" XName="Period" Width="2"
+                         Opacity="1" YName="ENG_InflationRate" Type="ChartSeriesType.Line">
+                <ChartMarker Visible="true" Width="10" Height="10">
+                </ChartMarker>
+            </ChartSeries>
+            <ChartSeries DataSource="@ChartData" Name="Benchmark" XName="Period" Width="2"
+                         Opacity="1" YName="GER_InflationRate" Type="ChartSeriesType.Line">
+                <ChartMarker Visible="true" Width="10" Height="10">
+                </ChartMarker>
+            </ChartSeries>
+        </ChartSeriesCollection>
+    </SfChart>
+</div>
+@code{
+
+    [Parameter]    
+    public string Ticker {get; set; }
+    public List<LineChartData> ChartData = new List<LineChartData>
+    {
+        new LineChartData { Period = new DateTime(2015, 01, 01), ENG_InflationRate = 21, GER_InflationRate = 28 },
+        new LineChartData { Period = new DateTime(2016, 02, 01), ENG_InflationRate = 24, GER_InflationRate = 44 },
+        new LineChartData { Period = new DateTime(2017, 03, 01), ENG_InflationRate = 36, GER_InflationRate = 48 },
+        new LineChartData { Period = new DateTime(2018, 04, 01), ENG_InflationRate = 38, GER_InflationRate = 50 },
+        new LineChartData { Period = new DateTime(2019, 05, 01), ENG_InflationRate = 54, GER_InflationRate = 66 },
+        new LineChartData { Period = new DateTime(2020, 06, 01), ENG_InflationRate = 57, GER_InflationRate = 78 },
+        new LineChartData { Period = new DateTime(2021, 07, 01), ENG_InflationRate = 70, GER_InflationRate = 84 }
+    };
+    protected override void OnInitialized()
+    {
+        //Theme = ThemeHelper.GetCurrentTheme(NavigationManager.Uri);
+    }
+
+    public class LineChartData
+    {
+        public DateTime Period { get; set; }
+        public double ENG_InflationRate { get; set; }
+        public double GER_InflationRate { get; set; }
+    }
+}

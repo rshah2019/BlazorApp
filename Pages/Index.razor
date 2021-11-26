@@ -1,0 +1,123 @@
+﻿@page "/"
+@using BlazorApp.Pages.Chart
+@using BlazorApp.Pages.Weather
+@using BlazorApp.Pages.Home
+@using Radzen.Blazor
+@using Radzen
+
+<PageTitle>Steadfast Home Page</PageTitle>
+
+<div style=" width:100px border: 0px solid black;">
+  Search:
+  <select name="Search" id="Search">
+    <option value="Trades">Trades</option>
+    <option value="Positions">Positions</option>
+    <option value="Admin">Admin</option>
+    <option value="Pricing">Pricing</option>
+    <option value="Risk">Risk</option>
+  </select>
+
+  <RadzenTextBox MaxLength="100" Placeholder="Search..."style="width: 200px;" />
+
+  <RadzenButton ButtonStyle="ButtonStyle.Secondary" Icon="search"  style="width: 50x;"></RadzenButton>
+</div>
+
+<br/>
+
+<div style=" border: 0px solid blue;">
+From:<input type="date" @bind-value=@StartDate/>
+
+
+To:  <input type="date" @bind-value=@StartDate/>
+
+
+Fund:
+<select name="PM" id="PM">
+  <option value="All">All</option>
+  <option value="Fund A">Fund A</option>
+  <option value="Fund B">Fund B</option>
+  <option value="Fund C">Fund C</option>
+  <option value="Fund D">Fund D</option>
+</select>
+
+PM:
+<select name="PM" id="PM">
+  <option value="All">All</option>
+  <option value="John">John</option>
+  <option value="Joe">Joe</option>
+  <option value="Doe">Doe</option>
+  <option value="Rob">Rob</option>
+</select>
+
+
+Strategy:
+<select name="Strategy" id="Strategy">
+  <option value="Strategy A">Equity L/S</option>
+  <option value="Strategy B">Distressed</option>
+  <option value="Strategy C">Relative</option>
+  <option value="Strategy C">EventDriven</option>
+</select>
+
+AssetClass:
+<select name="AssetClass" id="AssetClass">
+  <option value="Equity">Equity</option>
+  <option value="FixedIncome">FixedIncome</option>
+  <option value="Crypto">Crypto</option>
+  <option value="Macro">Macro</option>
+</select>
+
+
+Sector:
+<select name="Sector" id="Sector">
+  <option value="All">All</option>
+  <option value="TMT">TMT</option>
+  <option value="HealthCare">HealthCare</option>
+  <option value="Financials">Financials</option>
+  <option value="Industrials">Industrials</option>
+</select>
+
+
+  <RadzenButton ButtonStyle="ButtonStyle.Secondary" Icon="refresh"  style="width: 50x;"></RadzenButton>
+
+</div>
+
+
+<br/>
+<br/>
+<div style=" width: 750px; height: 330px; float: left; border: 1px solid red;">
+    <h4> Current Performance </h4>
+    <HomePerformance></HomePerformance>
+</div>
+<div style=" width: 600px; height: 330px; margin-left: 770px; border: 1px solid red;">
+    <h4>  Performance Over Selected Date Range </h4>
+    <HomePerformanceChart> </HomePerformanceChart>
+</div>
+
+<br/>
+<br/>
+<div style=" border: 1px solid red;">
+   <h4>  Portfolio Details</h4>
+    <HomeInvestment> </HomeInvestment>
+</div>
+
+<div style=" border: 1px solid red;">
+   <h4>  Net Long Exposures</h4>
+    <HomeExposure> </HomeExposure>
+</div>
+
+<button @onclick="@onClick"> Click </button>
+@isWebAssembly
+
+@code {
+    public DateTime StartDate { get; set; } = DateTime.Now;
+    public bool isWebAssembly {get; set;}
+
+     [Inject]
+    protected IJSRuntime jsRuntime { get; set; }
+
+    private void onClick()
+    {
+        isWebAssembly = this.jsRuntime is IJSInProcessRuntime;
+        Console.WriteLine("onClick");
+    }
+}

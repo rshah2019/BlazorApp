@@ -1,0 +1,116 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>BlazorApp</PageTitle>
+
+<div class="page ">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row  px-4">
+            <RadzenCard >
+                <RadzenMenu>
+                    <RadzenMenuItem Text="Portfolio" Icon="home">
+                        <RadzenMenuItem Text="Trades" Path="buttons" Icon="account_circle"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Positions" Path="menu" Icon="line_weight"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Security_Master" Path="fileinput" Icon="attach_file"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Sectors" Icon="perm_media">
+                            <RadzenMenuItem Text="Equity">
+                                <RadzenMenuItem Text="TMT"></RadzenMenuItem>
+                                <RadzenMenuItem Text="HealthCare"></RadzenMenuItem>
+                            </RadzenMenuItem>
+                            <RadzenMenuItem Text="Macro">
+                                <RadzenMenuItem Text="Rates"></RadzenMenuItem>
+                                <RadzenMenuItem Text="Currencies"></RadzenMenuItem>
+                            </RadzenMenuItem>
+                        </RadzenMenuItem>
+                        <RadzenMenuItem Text="Transfers" Path="notification" Icon="announcement"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Rebalance" Path="notification" Icon="announcement"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="PnL" Icon="payment">
+                        <RadzenMenuItem Text="Winners and Losers" Path="checkbox" Icon="check_circle"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Movers" Path="textbox" Icon="input"></RadzenMenuItem>
+                        <RadzenMenuItem Text="AssetClass PnL" Path="textarea" Icon="description"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Symbol PnL" Path="password" Icon="payment"></RadzenMenuItem>
+                        <RadzenMenuItem Text="PnL Attribution" Path="numeric" Icon="aspect_ratio"></RadzenMenuItem>
+                        <RadzenMenuItem Text="PnL Factors" Path="datepicker" Icon="date_range"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Risk" Icon="save">
+                        <RadzenMenuItem Text="Factor Models" Path="datagrid" Icon="grid_on"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Net/Gross Exposures" Path="datalist" Icon="list"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Option Risk" Path="dropdown" Icon="dns"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Macro Risk" Path="dropdown-datagrid" Icon="receipt"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Custodian Exposure" Path="listbox" Icon="view_list"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Equity Risk" Path="templateform" Icon="line_style"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Research" Icon="account_box">
+                        <RadzenMenuItem Text="Price Targets" Path="tabs" Icon="tab"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Notes" Path="panel" Icon="content_paste"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Upload Models" Path="fieldset" Icon="account_balance_wallet">
+                        </RadzenMenuItem>
+                        <RadzenMenuItem Text="Street Rec" Path="card" Icon="line_style"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Reports" Icon="help">
+                        <RadzenMenuItem Text="Net Asset Values"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Performance Fees"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Management Fees"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Investor Reports"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Risk Reward"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Margin/Leverage Model"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="EOD" Icon="history" >
+                        <RadzenMenuItem Text="Fund Admin Recs"></RadzenMenuItem>
+                        <RadzenMenuItem Text="PB Recs"></RadzenMenuItem>
+                        <RadzenMenuItem Text="FX Hedging"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Margin/Leverage Model"></RadzenMenuItem>
+                        <RadzenMenuItem Text="EOD Pricing/Rollover"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Compliance" Icon="lock" >
+                        <RadzenMenuItem Text="RL Editor"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Restricted List"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Watch List"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Sector Constraints"></RadzenMenuItem>
+                        <RadzenMenuItem Text="SEC 13/16 Report"></RadzenMenuItem>
+                        <RadzenMenuItem Text="EU Short Ownership"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Reg M/105 Approval"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Basket Approval"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Blotters" Icon="book" >
+                        <RadzenMenuItem Text="Order Blotter"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Trade Blotter"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Accounting Blotter"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Position Blotter"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Quantitative" Icon="hourglass_full" >
+                        <RadzenMenuItem Text="Fundamental Cashflows"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Macro Signals"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Alpha/Beta Analysis"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Correlation Service"></RadzenMenuItem>
+                        <RadzenMenuItem Text="IRR Calculator"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                    <RadzenMenuItem Text="Services" Icon="launch" >
+                        <RadzenMenuItem Text="Best Execution"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Soft Dollars"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Vendor Management"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Phone Book"></RadzenMenuItem>
+                    </RadzenMenuItem>
+
+                </RadzenMenu>
+            </RadzenCard>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

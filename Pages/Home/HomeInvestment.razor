@@ -1,0 +1,83 @@
+﻿@page "/homeInvestment"
+
+@using Microsoft.VisualBasic.FileIO;
+@using BlazorApp.Model;
+@using Radzen.Blazor;
+@using Radzen;
+
+@if (results == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenDataGrid AllowGrouping="true" 
+     AllowColumnResize="true" FilterMode="FilterMode.Advanced" ColumnWidth="300px" 
+     AllowPaging="true" AllowSorting="true" 
+    Data="@results" TItem="HomeInvestmentRow"  Render="@OnRender">
+        <Columns>
+            <RadzenDataGridColumn Width="20px" TItem="HomeInvestmentRow" Property="PM" Title="PM" />
+            <RadzenDataGridColumn Width="20px" TItem="HomeInvestmentRow" Property="AssetClass" Title="AssetClass" />
+            <RadzenDataGridColumn Width="30px" TItem="HomeInvestmentRow" Property="Sector" Title="Sector" />
+            <RadzenDataGridColumn Width="15px" TItem="HomeInvestmentRow" Property="Ticker" Title="Ticker" />
+            <RadzenDataGridColumn Width="40px" TItem="HomeInvestmentRow" Property="Issuer" Title="Issuer" />
+            <RadzenDataGridColumn Width="25px" TItem="HomeInvestmentRow" Property="NetExposure" Title="Net" FormatString="{0:C}"/>
+            <RadzenDataGridColumn Width="25px" TItem="HomeInvestmentRow" Property="GrossExposure" Title="Gross" FormatString="{0:C}"/>
+            <RadzenDataGridColumn Width="20px" TItem="HomeInvestmentRow" Property="ExposurePct" Title="Pct" FormatString="{0:P}"/>
+            <RadzenDataGridColumn Width="25px" TItem="HomeInvestmentRow" Property="Delta1Exposure" Title="Delta1" FormatString="{0:C}"/>
+            <RadzenDataGridColumn Width="25px" TItem="HomeInvestmentRow" Property="OptionExposure" Title="Option" FormatString="{0:C}"/>
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+
+    private HomeInvestmentRow[] results;
+
+    
+    void OnRender(DataGridRenderEventArgs<HomeInvestmentRow> args)
+    {
+        if(args.FirstRender)
+        {
+            args.Grid.Groups.Add(new GroupDescriptor(){ Property = "Sector" });
+            args.Grid.Groups.Add(new GroupDescriptor(){ Property = "PM" });
+            StateHasChanged();
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var bag = new List<HomeInvestmentRow>();
+        Random rnd = new Random();
+        var pm = new[]{"Joe", "Rob", "Moe", "Doe"};
+
+        using (TextFieldParser parser = new TextFieldParser(@"Assets/tickers.csv"))
+        {
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters(",");
+            while (!parser.EndOfData) 
+            {
+                //Processing row
+                string[] fields = parser.ReadFields();
+                var symbol = fields[0];
+                var issuer = fields[1];
+                var sector = fields[2];
+                var row = new HomeInvestmentRow();
+                row.Ticker = symbol;
+                row.Sector = sector;
+                row.Issuer = issuer;
+                row.PM = pm[rnd.Next(0, pm.Length)];
+                row.AssetClass = "Equity";
+                row.Delta1Exposure = rnd.Next(-1000000, 100000); 
+                row.ExposurePct  = rnd.NextDouble();
+                row.GrossExposure = rnd.Next(0, 1000000); 
+                row.NetExposure = rnd.Next(-1000000, 100000); 
+                row.OptionExposure = rnd.Next(-1000000, 100000); 
+                bag.Add(row);
+            }
+        }
+        results = await Task.FromResult(bag.ToArray());
+        Console.WriteLine("TEST....");
+        Console.WriteLine(results.Length);
+    }
+}

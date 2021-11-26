@@ -1,0 +1,29 @@
+﻿@page "/weatherData"
+
+
+@using BlazorApp.Data
+@inject WeatherForecastService ForecastService
+
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" PageSize="5" AllowPaging="true" AllowSorting="true"
+    Data="@forecasts" TItem="WeatherForecast" ColumnWidth="30px">
+        <Columns>
+            <RadzenDataGridColumn TItem="WeatherForecast" Property="Summary" Title="Summary" />
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}

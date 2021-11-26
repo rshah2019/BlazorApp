@@ -1,0 +1,56 @@
+@page "/securityInfo"
+
+@using System.Threading;
+@using System.Collections.Generic;
+@using System.Linq;
+@using BlazorApp.Data
+@using BlazorApp.Service;
+
+@inject ISecurityService securityService;
+
+<PageTitle>Security Info</PageTitle>
+
+<br>
+<br>
+
+
+@if (securityData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h6> <b>Ticker:</b> @Ticker <b> &nbsp;&nbsp; Price:</b> @securityData.LastPrice &nbsp;&nbsp; <b>Refreshed at:</b>
+        @securityData.UpdateTime </h6>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ticker</td>
+                <td>@securityData.Ticker</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@securityData.Name</td>
+            </tr>
+            <tr>
+                <td>Last Price</td>
+                <td>@securityData.LastPrice</td>
+            </tr>
+            <tr>
+                <td>Avg Daily Volume</td>
+                <td>@securityData.AvgDailyVolume?.ToString("N0")</td>
+            </tr>
+            <tr>
+                <td>Borrow Rate </td>
+                <td>@BorrowRate </td>
+            </tr>
+        </tbody>
+    </table>
+}

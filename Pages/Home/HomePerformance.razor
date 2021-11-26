@@ -1,0 +1,49 @@
+﻿@page "/homePerformance"
+
+
+@using BlazorApp.Model
+
+@if (results == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenDataGrid AllowColumnResize="true" PageSize="5" 
+    Data="@results" TItem="HomePerformanceRow" ColumnWidth="10px">
+        <Columns>
+            <RadzenDataGridColumn Width="10px" TItem="HomePerformanceRow" Property="Investment" Title="Fund" />
+            <RadzenDataGridColumn Width="10px" TItem="HomePerformanceRow" Property="Strategy" Title="Strategy" />
+            <RadzenDataGridColumn Width="10px" TItem="HomePerformanceRow" Property="DailyReturnDollar" Title="$ Daily PL" />
+            <RadzenDataGridColumn Width="10px" TItem="HomePerformanceRow" Property="DailyReturnPercent" Title="% Daily PL" />
+            <RadzenDataGridColumn Width="10px" TItem="HomePerformanceRow" Property="MtdReturnDollar" Title="$ MTD PL" />
+            <RadzenDataGridColumn Width="10px" TItem="HomePerformanceRow" Property="MtdReturnPercent" Title="% MTD PL" />
+
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+
+    private HomePerformanceRow[] results;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var bag = new List<HomePerformanceRow>();
+        bag.Add(new HomePerformanceRow(){Investment="Fund A", Strategy = "Equity L/S",
+            DailyReturnDollar= "150,000", DailyReturnPercent= "1.2%", 
+            MtdReturnDollar="300,000", MtdReturnPercent="2.3%"});
+        bag.Add(new HomePerformanceRow(){Investment="Fund B", Strategy = "Distressed",
+            DailyReturnDollar= "3,000,000", DailyReturnPercent= "1.3%", 
+            MtdReturnDollar="9,000,000", MtdReturnPercent="8.9%"});
+        bag.Add(new HomePerformanceRow(){Investment="Fund C", Strategy = "Relative value",
+            DailyReturnDollar= "(900,000)", DailyReturnPercent= "(-0.5%)", 
+            MtdReturnDollar="400,513", MtdReturnPercent="4.8%"});
+        bag.Add(new HomePerformanceRow(){Investment="Fund D", Strategy = "Event Driven",
+            DailyReturnDollar= "40,000", 
+            DailyReturnPercent= "0.2%", MtdReturnDollar="30,000", MtdReturnPercent="0.08%"});
+        results = await Task.FromResult(bag.ToArray());
+        Console.WriteLine("TEST....");
+        Console.WriteLine(results.Length);
+    }
+}

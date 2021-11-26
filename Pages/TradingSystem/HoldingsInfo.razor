@@ -1,0 +1,48 @@
+@page "/holdingsInfo"
+
+@using System.Threading;
+@using System.Collections.Generic;
+@using System.Linq;
+@using BlazorApp.Data
+@using BlazorApp.Service;
+
+@inject IHoldingService holdingService;
+
+<PageTitle>Holdings Info</PageTitle>
+
+<br>
+<br>
+
+
+@if (holdingsData == null || holdingsData.Ticker == null)
+{
+    <p><em>No Position</em></p>
+}
+else
+{
+    <h6> <b>Ticker:</b> @Ticker <b> &nbsp;&nbsp; Price:</b> @holdingsData.LastPrice &nbsp;&nbsp; <b>Refreshed at:</b>
+        @holdingsData.UpdateTime </h6>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ticker</td>
+                <td>@holdingsData.Ticker</td>
+            </tr>
+            <tr>
+                <td>Shares</td>
+                <td>@holdingsData.Shares.ToString("N0")</td>
+            </tr>
+            <tr>
+                <td>Basis Points</td>
+                <td>@holdingsData.BasisPoints</td>
+            </tr>
+        </tbody>
+    </table>
+}

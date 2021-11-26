@@ -1,0 +1,64 @@
+﻿@page "/trading"
+@using BlazorApp.Pages.Tabs
+@using BlazorApp.Data;
+@using BlazorApp.Pages.Chart
+@inject ICapitalService capitalService;
+
+<p>
+  <label>
+    Ticker
+    <input @bind="updateTicker" />
+  </label>
+  <button @onclick="getTickerData">
+    Get Data
+  </button>
+</p>
+
+
+<h6>Capital: @Capital </h6>
+
+<br />
+
+<TabControl>
+  <TabPage Text="Trading Info">
+    <TradingInfo Ticker=@currentTicker> </TradingInfo>
+  </TabPage>
+  <TabPage Text="Security Info">
+    <SecurityInfo Ticker=@currentTicker> </SecurityInfo>
+  </TabPage>
+  <TabPage Text="Holdings Info">
+    <HoldingsInfo Ticker=@currentTicker> </HoldingsInfo>
+  </TabPage>
+  <TabPage Text="Exposure">
+    <TickerExposureChart Ticker=@currentTicker>  </TickerExposureChart>
+  </TabPage>
+  <TabPage Text="Transactions">
+  </TabPage>
+  <TabPage Text="Positions">
+  </TabPage>
+  <TabPage Text="PriceTargets">
+  </TabPage>
+  <TabPage Text="Cumulative PnL">
+  </TabPage>
+  <TabPage Text="Quantity vs. Price">
+  </TabPage>
+</TabControl>
+
+
+@code {
+  private string currentTicker;
+  private string? updateTicker;
+  private void getTickerData()
+  {
+    currentTicker = $"{updateTicker}";
+  }
+
+  public String Capital
+  {
+    get
+    {
+      var task = Task.Run(async () => await capitalService.GetCapitalNumberASync());
+      return task.GetAwaiter().GetResult().ToString("N");
+    }
+  }
+}

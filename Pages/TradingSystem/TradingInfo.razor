@@ -1,0 +1,62 @@
+@page "/tradingInfo"
+
+@using System.Threading;
+@using System.Collections.Generic;
+@using System.Linq;
+@using BlazorApp.Data
+@using Radzen.Blazor;
+@inject IBasisPointService basisPointService;
+
+<PageTitle>Trading Info</PageTitle>
+
+<br>
+<br>
+
+Real-time:<RadzenCheckBox @bind-Value=@isRealTime  Name="Real-time" TValue="bool" />
+<br>
+
+@if (cheatSheet == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <label>
+        Custom Bps
+        <input @bind="customBps" />
+    </label>
+    <button @onclick="calculateConversion">
+        Convert
+    </button>
+
+    <br /><br />
+
+    <h6> <b>Ticker:</b> @Ticker <b> &nbsp;&nbsp; Price:</b> @cheatSheet.Price &nbsp;&nbsp; <b>Refreshed at:</b>
+        @cheatSheet.UpdateTime </h6>
+
+    @if (CustomShares != null)
+    {
+        <h6> <b>Custom Shares:</b> @CustomShares.Shares.ToString("N0") <b> &nbsp;&nbsp; $ Custom Order:</b>
+            @CustomShares.OrderValue.ToString("N0") &nbsp;&nbsp; </h6>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Basis Points</th>
+                <th>Shares</th>
+                <th>$ Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var basisObject in cheatSheet.BpsShares.Where(c => STANDARD_BPS.Contains(c.BasisPoints)))
+            {
+                <tr>
+                    <td>@basisObject.BasisPoints</td>
+                    <td>@basisObject.Shares.ToString("N0")</td>
+                    <td>@basisObject.OrderValue.ToString("N0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

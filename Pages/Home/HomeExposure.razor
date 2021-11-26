@@ -1,0 +1,37 @@
+﻿@page "/homeExposure"
+
+
+@using BlazorApp.Model
+
+@if (results == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenDataGrid AllowColumnResize="true" PageSize="5" 
+    Data="@results" TItem="HomeExposureRow" ColumnWidth="10px">
+        <Columns>
+            <RadzenDataGridColumn Width="10px" TItem="HomeExposureRow" Property="Ticker" Title="Ticker" />
+            <RadzenDataGridColumn Width="10px" TItem="HomeExposureRow" Property="Name" Title="Name" />
+            <RadzenDataGridColumn Width="10px" TItem="HomeExposureRow" Property="Exposure" Title="Exposure" />
+
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+
+    private HomeExposureRow[] results;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var bag = new List<HomeExposureRow>();
+        bag.Add(new HomeExposureRow(){Ticker = "ABC", Name="ABC Corp", Exposure="30,000,000"});
+        bag.Add(new HomeExposureRow(){Ticker = "XYZ", Name="XYZ Corp", Exposure="25,000,000"});
+        bag.Add(new HomeExposureRow(){Ticker = "DEF", Name="DEF Corp", Exposure="23,000,000"});
+        results = await Task.FromResult(bag.ToArray());
+        Console.WriteLine("TEST....");
+        Console.WriteLine(results.Length);
+    }
+}
